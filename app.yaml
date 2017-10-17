@@ -1,0 +1,27 @@
+runtime: python27
+api_version: 1
+threadsafe: yes
+
+runtime_config:
+    python_version: 3
+
+inbound_services:
+- mail
+
+handlers:
+- url: /_ah/mail/[a-z\-]+@votemesir\.appspotmail\.com
+  script: handle_receiver.app
+  login: admin
+
+- url: /.*
+  script: main.app
+
+skip_files:
+- ^\.git/.*
+- ^(.*/)?.*\.py[co]$
+- bin
+- include
+- ^lib$
+- ^\.idea/.*
+- ^pip-selfcheck\.json$
+- ^\.gitignore$
