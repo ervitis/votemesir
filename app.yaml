@@ -28,3 +28,5 @@ skip_files:
 - ^e2e_ping\.py$
 - ^install_requirements\.sh$
 - ^(.*/)?.*\.md$
+- ^google_appengine/.*
+- ^google-cloud-sdk/.*
