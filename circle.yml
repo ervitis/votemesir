@@ -13,7 +13,8 @@ dependencies:
 
 deployment:
   production:
-    pre:
+    branch: master
+    commands:
       - gcloud app deploy app.yaml --version=1 --project=voteme-sir --verbosity=info
       - python e2e_ping.py
 
