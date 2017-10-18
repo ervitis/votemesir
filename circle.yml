@@ -1,6 +1,6 @@
 machine:
   python:
-    version: 3.5.1
+    version: 2.7.12
   environment:
     PYTHONPATH: ${PYTHONPATH}:${HOME}/google_appengine
     GCLOUD_PROJECT: "voteme-sir"
@@ -13,7 +13,6 @@ dependencies:
 deployment:
   production:
     pre:
-      - pyenv global 2.7.12 2.7.10 3.5.1
       - gcloud app deploy app.yaml --version=1 --project=voteme-sir --verbosity=info
       - python e2e_ping.py
 
