@@ -26,6 +26,18 @@ function createDirectoryLibrary {
     mkdir -p ${HOME}/${DIRECTORYLIBRARY_NAME}
 }
 
+function checkFileExists {
+    local path=$1
+
+    echo "Checking file="${path}
+
+    ls ${path}; r=$?
+    if [[ ${r} -ne 0 ]]; then
+        echo "Path="${path}" not found"
+        exit 1
+    fi
+}
+
 function downloadSDK {
     createDirectoryLibrary
     local downloadPath=${HOME}/${DIRECTORYLIBRARY_NAME}/${GOOGLESDK_NAME}-${GOOGLESDK_VERSION}.tar.gz
@@ -53,13 +65,19 @@ function installAppengine {
 
     echo "Now in "${directory}
 
-    cd ${directory} && unzip -q ${GOOGLEAPPENGINE_NAME}_${GOOGLEAPPENGINE_VERSION}.zip
+    local file=${directory}/${GOOGLEAPPENGINE_NAME}_${GOOGLEAPPENGINE_VERSION}.zip
+    checkFileExists ${file}
+
+    cd ${directory} && unzip -q
 }
 
 function installSDK {
     local directory=${HOME}/${DIRECTORYLIBRARY_NAME}
 
     echo "Now in "${directory}
+
+    local file=${directory}/${GOOGLESDK_NAME}-${GOOGLESDK_VERSION}-linux-x86_64.tar.gz
+    checkFileExists ${file}
 
     cd ${directory} && tar xf ${GOOGLESDK_NAME}-${GOOGLESDK_VERSION}-linux-x86_64.tar.gz && ./${GOOGLESDK_NAME}-${GOOGLESDK_VERSION}/install.sh
 }
@@ -81,7 +99,7 @@ function setupEnvironment {
 function main {
     setVariables
     printVariables
-    
+
     downloadSDK
     installSDK
     downloadAppengine
