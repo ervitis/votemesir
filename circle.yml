@@ -2,7 +2,7 @@ machine:
   python:
     version: 2.7.12
   environment:
-    PYTHONPATH: ${PYTHONPATH}:${HOME}/google_appengine
+    PYTHONPATH: ${PYTHONPATH}:${HOME}/google_appengine:${HOME}/libs
     GCLOUD_PROJECT: "voteme-sir"
 
 dependencies:
