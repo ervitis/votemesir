@@ -13,7 +13,7 @@ dependencies:
 deployment:
   production:
     pre:
-      - pyenv global 2.7.12
+      - pyenv global 2.7.12 2.7.10 3.5.1
       - gcloud app deploy app.yaml --version=1 --project=voteme-sir --verbosity=info
       - python e2e_ping.py
 
