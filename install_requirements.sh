@@ -9,7 +9,7 @@ function main {
         exit 1
     fi
 
-    ls -l libs
+    touch ./libs/__init__.py
 }
 
 main
