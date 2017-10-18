@@ -105,6 +105,8 @@ function main {
     downloadAppengine
     installAppengine
 
+    setupEnvironment
+
     goToCircleHome
 }
 
