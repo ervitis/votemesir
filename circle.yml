@@ -2,7 +2,7 @@ machine:
   python:
     version: 2.7.12
   environment:
-    PYTHONPATH: ${PYTHONPATH}:${HOME}/google_appengine
+    PYTHONPATH: ${PYTHONPATH}:${HOME}/sdk:${HOME}/${CIRCLE_PROJECT_REPONAME}/libs
     GCLOUD_PROJECT: "voteme-sir"
 
 dependencies:
@@ -18,6 +18,8 @@ deployment:
       - python e2e_ping.py
 
 test:
+  override:
+    - nosetests -w ${HOME}/${CIRCLE_PROJECT_REPONAME}/tests
   post:
     - git reset --hard
     - git clean -d -x -f
