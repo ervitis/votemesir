@@ -8,6 +8,8 @@ function main {
         echo "Error"
         exit 1
     fi
+
+    ls -l libs
 }
 
 main
