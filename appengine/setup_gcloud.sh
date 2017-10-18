@@ -91,7 +91,12 @@ function goToCircleHome {
 function setupEnvironment {
     echo "SetupEnvironment"
 
+    echo ${CLIENT_SECRET}
     echo ${CLIENT_SECRET} | base64 --decode > ${HOME}/${clientSecretsFile}
+
+    echo "clientsecretsdir="${HOME}/${clientSecretsFile}
+    cat ${HOME}/${clientSecretsFile}
+
     gcloud auth activate-service-account --key-file ${HOME}/${clientSecretsFile}
     gcloud config set project ${HOST_APPENGINE}
 }
