@@ -68,7 +68,7 @@ function installAppengine {
     local file=${directory}/${GOOGLEAPPENGINE_NAME}_${GOOGLEAPPENGINE_VERSION}.zip
     checkFileExists ${file}
 
-    cd ${directory} && unzip -q
+    unzip -q ${file}
 }
 
 function installSDK {
@@ -79,7 +79,7 @@ function installSDK {
     local file=${directory}/${GOOGLESDK_NAME}-${GOOGLESDK_VERSION}-linux-x86_64.tar.gz
     checkFileExists ${file}
 
-    cd ${directory} && tar xf ${GOOGLESDK_NAME}-${GOOGLESDK_VERSION}-linux-x86_64.tar.gz && ./${GOOGLESDK_NAME}-${GOOGLESDK_VERSION}/install.sh
+    tar xf ${file} && ./${GOOGLESDK_NAME}-${GOOGLESDK_VERSION}/install.sh
 }
 
 function goToCircleHome {
