@@ -21,6 +21,3 @@ deployment:
 test:
   override:
     - nosetests -w ${HOME}/${CIRCLE_PROJECT_REPONAME}/tests -v
-  post:
-    - git reset --hard
-    - git clean -d -x -f
