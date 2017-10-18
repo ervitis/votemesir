@@ -11,33 +11,68 @@ function setVariables {
     DIRECTORYLIBRARY_NAME="sdk"
 }
 
+function printVariables {
+    echo "clientSecretsFile="${clientSecretsFile}
+    echo "GOOGLESDK_VERSION="${GOOGLESDK_VERSION}
+    echo "GOOGLESDK_NAME="${GOOGLESDK_NAME}
+    echo "GOOGLESDKD_URL="${GOOGLESDKD_URL}
+    echo "GOOGLEAPPENGINE_VERSION="${GOOGLEAPPENGINE_VERSION}
+    echo "GOOGLEAPPENGINE_NAME="${GOOGLEAPPENGINE_NAME}
+    echo "GOOGLEAPPENGINE_URL="${GOOGLEAPPENGINE_URL}
+    echo "DIRECTORYLIBRARY_NAME="${DIRECTORYLIBRARY_NAME}
+}
+
 function createDirectoryLibrary {
     mkdir -p ${HOME}/${DIRECTORYLIBRARY_NAME}
 }
 
 function downloadSDK {
     createDirectoryLibrary
-    curl -o ${HOME}/${DIRECTORYLIBRARY_NAME}/${GOOGLESDK_NAME}_${GOOGLESDK_VERSION}.tar.gz ${GOOGLESDKD_URL}/${GOOGLESDK_NAME}-${GOOGLESDK_VERSION}-linux-x86_64.tar.gz
+    local downloadPath=${HOME}/${DIRECTORYLIBRARY_NAME}/${GOOGLESDK_NAME}-${GOOGLESDK_VERSION}.tar.gz
+    local urlToDownload=${GOOGLESDKD_URL}/${GOOGLESDK_NAME}-${GOOGLESDK_VERSION}-linux-x86_64.tar.gz
+
+    echo "downloadPath="${downloadPath}
+    echo "urlToDownload="${urlToDownload}
+
+    curl -o ${downloadPath} ${urlToDownload}
 }
 
 function downloadAppengine {
     createDirectoryLibrary
-    curl -o ${HOME}/${DIRECTORYLIBRARY_NAME}/${GOOGLEAPPENGINE_NAME}_${GOOGLEAPPENGINE_VERSION}.zip ${GOOGLEAPPENGINE_URL}/${GOOGLEAPPENGINE_NAME}_${GOOGLEAPPENGINE_VERSION}.zip
+    local downloadPath=${HOME}/${DIRECTORYLIBRARY_NAME}/${GOOGLEAPPENGINE_NAME}_${GOOGLEAPPENGINE_VERSION}.zip
+    local urlToDownload=${GOOGLEAPPENGINE_URL}/${GOOGLEAPPENGINE_NAME}_${GOOGLEAPPENGINE_VERSION}.zip
+
+    echo "downloadPath="${downloadPath}
+    echo "urlToDownload="${urlToDownload}
+
+    curl -o ${downloadPath} ${urlToDownload}
 }
 
 function installAppengine {
-    cd ${HOME}/${DIRECTORYLIBRARY_NAME} && unzip -q ${GOOGLEAPPENGINE_NAME}_${GOOGLEAPPENGINE_VERSION}.zip
+    local directory=${HOME}/${DIRECTORYLIBRARY_NAME}
+
+    echo "Now in "${directory}
+
+    cd ${directory} && unzip -q ${GOOGLEAPPENGINE_NAME}_${GOOGLEAPPENGINE_VERSION}.zip
 }
 
 function installSDK {
-    cd ${HOME}/${DIRECTORYLIBRARY_NAME} && tar xf ${GOOGLESDK_NAME}-${GOOGLESDK_VERSION}-linux-x86_64.tar.gz && ./${GOOGLESDK_NAME}-${GOOGLESDK_VERSION}/install.sh
+    local directory=${HOME}/${DIRECTORYLIBRARY_NAME}
+
+    echo "Now in "${directory}
+
+    cd ${directory} && tar xf ${GOOGLESDK_NAME}-${GOOGLESDK_VERSION}-linux-x86_64.tar.gz && ./${GOOGLESDK_NAME}-${GOOGLESDK_VERSION}/install.sh
 }
 
 function goToCircleHome {
+    echo "Going to circle home="${CIRCLE_PROJECT_REPONAME}
+
     cd ${HOME}/${CIRCLE_PROJECT_REPONAME}
 }
 
 function setupEnvironment {
+    echo "SetupEnvironment"
+
     echo ${CLIENT_SECRET} | base64 --decode > ${HOME}/${clientSecretsFile}
     gcloud auth activate-service-account --key-file ${HOME}/${clientSecretsFile}
     gcloud config set project ${HOST_APPENGINE}
@@ -45,6 +80,8 @@ function setupEnvironment {
 
 function main {
     setVariables
+    printVariables
+    
     downloadSDK
     installSDK
     downloadAppengine
