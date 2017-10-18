@@ -22,3 +22,9 @@ skip_files:
 - ^\.idea/.*
 - ^pip-selfcheck\.json$
 - ^\.gitignore$
+- ^circle\.yml$
+- ^appenine*
+- ^test*
+- ^e2e_ping\.py$
+- ^install_requirements\.sh$
+- ^(.*/)?.*\.md$

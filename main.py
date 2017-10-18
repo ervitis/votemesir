@@ -12,6 +12,6 @@ def create_app(name):
 app = create_app(__name__)
 
 
-@app.route('/')
+@app.route('/ping')
 def hello():
     return 'hello world'

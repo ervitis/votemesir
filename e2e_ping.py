@@ -29,10 +29,17 @@ def get_host_variable():
         return None
 
 
-def build_appengine_host(host_name):
+def get_url_variable():
+    try:
+        return os.environ['URL_PING']
+    except KeyError:
+        return None
+
+
+def build_appengine_host(host_name, url):
     assert isinstance(host_name, str) is True
 
-    return 'https://{}.appspot.com/hello/foo'.format(host_name)
+    return 'https://{host}.appspot.com/{url}'.format(host=host_name, url=url)
 
 
 def change_time_to_sleep(time_to_sleep):
@@ -42,12 +49,13 @@ def change_time_to_sleep(time_to_sleep):
 
 def main():
     host = get_host_variable()
-    if host is None:
-        raise Exception('HOST variable is empty')
+    url = get_url_variable()
+    if host is None or url is None:
+        raise Exception('HOST or URL_PING variable is empty')
 
     time_to_sleep = CONSTANT_SLEEP
     c = 0
-    url = build_appengine_host(host)
+    url = build_appengine_host(host, url)
 
     while c < N:
         try:
