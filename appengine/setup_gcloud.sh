@@ -40,7 +40,7 @@ function checkFileExists {
 
 function downloadSDK {
     createDirectoryLibrary
-    local downloadPath=${HOME}/${DIRECTORYLIBRARY_NAME}/${GOOGLESDK_NAME}-${GOOGLESDK_VERSION}.tar.gz
+    local downloadPath=${HOME}/${DIRECTORYLIBRARY_NAME}/${GOOGLESDK_NAME}-${GOOGLESDK_VERSION}-linux-x86_64.tar.gz
     local urlToDownload=${GOOGLESDKD_URL}/${GOOGLESDK_NAME}-${GOOGLESDK_VERSION}-linux-x86_64.tar.gz
 
     echo "downloadPath="${downloadPath}
