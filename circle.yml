@@ -7,8 +7,9 @@ machine:
 
 dependencies:
   pre:
-    - bash install_requirements.sh
     - bash ./appengine/setup_gcloud.sh
+  override:
+    - bash install_requirements.sh
 
 deployment:
   production:
