@@ -79,7 +79,7 @@ function installSDK {
     local file=${directory}/${GOOGLESDK_NAME}-${GOOGLESDK_VERSION}-linux-x86_64.tar.gz
     checkFileExists ${file}
 
-    cd ${directory} && tar xf ${file} && ls -l && ./${GOOGLESDK_NAME}-${GOOGLESDK_VERSION}/install.sh\
+    cd ${directory} && tar xf ${file} && ls -l && ./${GOOGLESDK_NAME}/install.sh \
         --usage-reporting=false \
         --bash-completion=false \
         --path-update=true \
