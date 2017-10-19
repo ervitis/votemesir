@@ -2,7 +2,7 @@
 
 function setVariables {
     clientSecretsFile="client-secret.json"
-    GOOGLESDK_VERSION="175.0.0"
+    GOOGLESDK_VERSION="176.0.0"
     GOOGLESDK_NAME="google-cloud-sdk"
     GOOGLESDKD_URL="https://dl.google.com/dl/cloudsdk/channels/rapid/downloads"
     GOOGLEAPPENGINE_VERSION="1.9.61"
