@@ -81,7 +81,7 @@ function installSDK {
 
     ls -l ${directory}
 
-    tar xf ${file} && .${directory}/${GOOGLESDK_NAME}-${GOOGLESDK_VERSION}/install.sh \
+    cd ${directory} && tar xf ${file} && .${directory}/${GOOGLESDK_NAME}-${GOOGLESDK_VERSION}/install.sh \
         --usage-reporting=false \
         --bash-completion=false \
         --path-update=true \
