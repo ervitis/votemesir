@@ -38,6 +38,7 @@ def get_url_variable():
 
 def build_appengine_host(host_name, url):
     assert isinstance(host_name, str) is True
+    assert isinstance(url, str) is True
 
     return 'https://{host}.appspot.com/{url}'.format(host=host_name, url=url)
 
