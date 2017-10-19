@@ -83,7 +83,7 @@ function installSDK {
         --usage-reporting=false \
         --bash-completion=false \
         --path-update=true \
-        --rc-path=/.bashrc \
+        --rc-path=${HOME}/.bashrc \
         --additional-components app-engine-python
 }
 
