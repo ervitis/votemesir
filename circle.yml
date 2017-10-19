@@ -8,6 +8,7 @@ machine:
 dependencies:
   pre:
     - bash ./appengine/setup_gcloud.sh
+    - gcloud components install app-engine-python
   override:
     - bash install_requirements.sh
 
