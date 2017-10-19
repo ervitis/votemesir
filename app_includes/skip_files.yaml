@@ -1,0 +1,16 @@
+- ^\.git/.*
+- ^(.*/)?.*\.py[co]$
+- bin
+- include
+- ^lib$
+- ^\.idea/.*
+- ^pip-selfcheck\.json$
+- ^\.gitignore$
+- ^circle\.yml$
+- ^appengine*
+- ^test*
+- ^e2e_ping\.py$
+- ^install_requirements\.sh$
+- ^(.*/)?.*\.md$
+- ^google_appengine/.*
+- ^google-cloud-sdk/.*
