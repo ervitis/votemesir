@@ -79,7 +79,12 @@ function installSDK {
     local file=${directory}/${GOOGLESDK_NAME}-${GOOGLESDK_VERSION}-linux-x86_64.tar.gz
     checkFileExists ${file}
 
-    tar xf ${file} && ./${GOOGLESDK_NAME}-${GOOGLESDK_VERSION}/install.sh
+    tar xf ${file} && ./${GOOGLESDK_NAME}-${GOOGLESDK_VERSION}/install.sh \
+        --usage-reporting=false \
+        --bash-completion=false \
+        --path-update=true \
+        --rc-path=/.bashrc \
+        --additional-components app-engine-python
 }
 
 function goToCircleHome {
@@ -105,8 +110,6 @@ function main {
 
     downloadSDK
     installSDK
-    downloadAppengine
-    installAppengine
 
     setupEnvironment
 

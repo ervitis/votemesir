@@ -8,7 +8,7 @@ machine:
 dependencies:
   pre:
     - bash ./appengine/setup_gcloud.sh
-    - gcloud components install app-engine-python
+    - sudo chmod 757 ${HOME}/.config/gcloud/logs -R
   override:
     - bash install_requirements.sh
 
