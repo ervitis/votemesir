@@ -2,7 +2,7 @@ machine:
   python:
     version: 2.7.12
   environment:
-    PYTHONPATH: ${PYTHONPATH}:${HOME}/sdk:${HOME}/${CIRCLE_PROJECT_REPONAME}/libs
+    PYTHONPATH: ${PYTHONPATH}:${HOME}/sdk:${HOME}/${CIRCLE_PROJECT_REPONAME}/libs:${HOME}/sdk/google_appengine
     GCLOUD_PROJECT: "voteme-sir"
 
 dependencies:
