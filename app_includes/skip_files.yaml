@@ -8,7 +8,7 @@ skip_files:
 - ^pip-selfcheck\.json$
 - ^\.gitignore$
 - ^circle\.yml$
-- ^appengine*
+- ^appengine/.*
 - ^test*
 - ^e2e_ping\.py$
 - ^install_requirements\.sh$
