@@ -15,6 +15,7 @@ deployment:
   production:
     branch: master
     commands:
+      - find . -name "*.pyc" -exec rm -f {} \;
       - gcloud app deploy app.yaml --version=1 --project=voteme-sir --verbosity=info
       - python e2e_ping.py
 
