@@ -1,3 +1,4 @@
+skip_files:
 - ^\.git/.*
 - ^(.*/)?.*\.py[co]$
 - bin

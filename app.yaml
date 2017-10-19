@@ -13,5 +13,4 @@ handlers:
 - url: /.*
   script: main.app
 
-skip_files:
 - includes: app_includes/skip_files.yaml
