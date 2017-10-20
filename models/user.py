@@ -12,6 +12,11 @@ class ModelUser(ndb.Model):
     surname = ndb.StringProperty()
 
 
+EMAIL_ADDRESS = '@votemesir.appspotmail.com'
+MIN = 6
+MAX = 16
+
+
 def generate_data(n):
     assert (isinstance(n, int) is True and 0 < n < 1001)
     password_prefix = 'Ab_Cd_'
@@ -24,7 +29,7 @@ def generate_data(n):
         consonants = ''.join(set(string.ascii_lowercase) - set(vowels))
 
         w = ''
-        for i in range(random.choice(range(7, 12))):
+        for i in range(random.choice(range(MIN, MAX))):
             if i % 2 == 0:
                 w += random.choice(vowels)
             elif i % 5 == 0:
@@ -36,7 +41,7 @@ def generate_data(n):
     ldata = []
     for _ in range(n):
         m = {
-            'email': generate_word() + '@votemesir.appspotmail.com',
+            'email': generate_word() + EMAIL_ADDRESS,
             'url_email_validation': '',
             'date_last_vote': None,
             'password': password_prefix + generate_word(),
