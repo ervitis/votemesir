@@ -118,7 +118,7 @@ function main {
 
     setupEnvironment
 
-    ls -l /opt/google-cloud-sdk/*
+    ls -l /opt/google-cloud-sdk/google_appengine/*
     echo "PYTHONPATH="${PYTHONPATH}
 
     goToCircleHome
