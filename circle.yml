@@ -11,7 +11,7 @@ dependencies:
     - sudo chmod 757 ${HOME}/.config/gcloud/logs -R
   override:
     - bash install_requirements.sh
-    - export PYTHONPATH=${PYTHONPATH}:${HOME}/sdk:${HOME}/${CIRCLE_PROJECT_REPONAME}/libs:${GOOGLEAPPENGINE_PATH}/google:${GOOGLEAPPENGINE_PATH}/lib
+    - export PYTHONPATH=${PYTHONPATH}:${HOME}/sdk:${HOME}/${CIRCLE_PROJECT_REPONAME}/libs:${GOOGLEAPPENGINE_PATH}:${GOOGLEAPPENGINE_PATH}/google:${GOOGLEAPPENGINE_PATH}/lib
 
 deployment:
   production:
