@@ -3,6 +3,7 @@ machine:
     version: 2.7.12
   environment:
     GOOGLEAPPENGINE_PATH: /opt/google-cloud-sdk/platform/google_appengine
+    PYTHONPATH: ${PYTHONPATH}:${HOME}/sdk:${HOME}/${CIRCLE_PROJECT_REPONAME}/libs:${GOOGLEAPPENGINE_PATH}/google:${GOOGLEAPPENGINE_PATH}/lib
     GCLOUD_PROJECT: "voteme-sir"
 
 dependencies:
@@ -11,7 +12,6 @@ dependencies:
     - sudo chmod 757 ${HOME}/.config/gcloud/logs -R
   override:
     - bash install_requirements.sh
-    - export PYTHONPATH=${PYTHONPATH}:${HOME}/sdk:${HOME}/${CIRCLE_PROJECT_REPONAME}/libs:${GOOGLEAPPENGINE_PATH}:${GOOGLEAPPENGINE_PATH}/google:${GOOGLEAPPENGINE_PATH}/lib
 
 deployment:
   production:
