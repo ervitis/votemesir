@@ -12,6 +12,8 @@ dependencies:
     - sudo chmod 757 ${HOME}/.config/gcloud/logs -R
   override:
     - bash install_requirements.sh
+  post:
+    - bash ./appengine/workaround_gae_fancyurl.sh
 
 deployment:
   production:
