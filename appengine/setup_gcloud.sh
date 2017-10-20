@@ -87,6 +87,7 @@ function installSDK {
         --additional-components app-engine-python
 
     ls -l /opt/google-cloud-sdk/platform/google_appengine/google
+    echo "PYTHONPATH="${PYTHONPATH}
 }
 
 function goToCircleHome {
