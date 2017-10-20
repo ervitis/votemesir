@@ -85,9 +85,6 @@ function installSDK {
         --path-update=true \
         --rc-path=${HOME}/.bashrc \
         --additional-components app-engine-python
-
-    ls -l /opt/google-cloud-sdk/*
-    echo "PYTHONPATH="${PYTHONPATH}
 }
 
 function goToCircleHome {
@@ -115,6 +112,9 @@ function main {
     installSDK
 
     setupEnvironment
+
+    ls -l /opt/google-cloud-sdk/*
+    echo "PYTHONPATH="${PYTHONPATH}
 
     goToCircleHome
 }
