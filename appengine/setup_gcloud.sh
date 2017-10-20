@@ -114,6 +114,8 @@ function main {
     downloadSDK
     installSDK
 
+    installAppengineGcloud
+
     setupEnvironment
 
     ls -l /opt/google-cloud-sdk/*
