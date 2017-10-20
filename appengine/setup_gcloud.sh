@@ -72,7 +72,7 @@ function installAppengine {
 }
 
 function installAppengineGcloud {
-    sudo /opt/google-cloud-sdk/bin/gcloud components install app-engine-python
+    sudo /opt/google-cloud-sdk/bin/gcloud components install -q app-engine-python
 }
 
 function installSDK {
