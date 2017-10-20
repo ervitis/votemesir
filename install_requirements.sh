@@ -13,6 +13,8 @@ function main {
     pwd
     ls -l ${HOME}
     ls -l ${HOME}/${CIRCLE_PROJECT_REPONAME}/libs
+    ls -l ${HOME}/${CIRCLE_PROJECT_REPONAME}
+    ls -l ${HOME}/virtualenvs
 }
 
 main

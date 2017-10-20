@@ -1,8 +1,9 @@
 skip_files:
 - ^\.git/.*
 - ^(.*/)?.*\.py[co]$
-- bin
-- include
+- ^bin$
+- ^include$
+- ^local$
 - ^lib$
 - ^\.idea/.*
 - ^pip-selfcheck\.json$
