@@ -120,6 +120,8 @@ function main {
 
     ls -l /opt/google-cloud-sdk/platform/google_appengine/*
     echo "PYTHONPATH="${PYTHONPATH}
+    ls -l ${HOME}/${CIRCLE_PROJECT_REPONAME}/*
+    ls -l ${HOME}/${CIRCLE_PROJECT_REPONAME}/libs/*
 
     goToCircleHome
 }
