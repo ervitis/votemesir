@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from google.appengine.ext import ndb
-
+import yaml
 
 class ModelUser(ndb.Model):
     email = ndb.StringProperty()
