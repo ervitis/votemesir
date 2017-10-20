@@ -71,6 +71,10 @@ function installAppengine {
     unzip -q ${file}
 }
 
+function installAppengineGcloud {
+    sudo gcloud components install app-engine-python
+}
+
 function installSDK {
     local directory=${HOME}/${DIRECTORYLIBRARY_NAME}
 
@@ -83,8 +87,7 @@ function installSDK {
         --usage-reporting=false \
         --bash-completion=false \
         --path-update=true \
-        --rc-path=${HOME}/.bashrc \
-        --additional-components app-engine-python
+        --rc-path=${HOME}/.bashrc
 }
 
 function goToCircleHome {
