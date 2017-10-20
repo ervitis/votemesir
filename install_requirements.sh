@@ -10,6 +10,9 @@ function main {
     fi
 
     touch ./libs/__init__.py
+    pwd
+    ls -l ${HOME}
+    ls -l ${HOME}/libs
 }
 
 main
