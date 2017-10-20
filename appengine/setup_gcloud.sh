@@ -86,7 +86,7 @@ function installSDK {
         --rc-path=${HOME}/.bashrc \
         --additional-components app-engine-python
 
-    ls -l /opt/google-cloud-sdk/platform/google_appengine/google
+    ls -l /opt/google-cloud-sdk/*
     echo "PYTHONPATH="${PYTHONPATH}
 }
 
