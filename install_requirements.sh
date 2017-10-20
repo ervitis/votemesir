@@ -1,7 +1,7 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 function main {
-    mkdir -p libs 2>/dev/null
+    mkdir -p ./libs
 
     pip install -t libs -r requirements.txt; result=$?
     if [[ ${result} -ne 0 ]]; then
