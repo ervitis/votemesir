@@ -12,7 +12,7 @@ function main {
     touch ./libs/__init__.py
     pwd
     ls -l ${HOME}
-    ls -l ${CIRCLE_PROJECT_REPONAME}/libs
+    ls -l ${HOME}/${CIRCLE_PROJECT_REPONAME}/libs
 }
 
 main
