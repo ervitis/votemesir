@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 function fixError {
-    cp ${GOOGLEAPPENGINE_PATH}/lib/fancy_urllib/fancy_urllib/__init__.py ${GOOGLEAPPENGINE_PATH}/lib/fancy_urllib/__init__.py
+    sudo cp /opt/google-cloud-sdk/platform/google_appengine/lib/fancy_urllib/fancy_urllib/__init__.py /opt/google-cloud-sdk/platform/google_appengine/lib/fancy_urllib/__init__.py
 }
 
 function main {
