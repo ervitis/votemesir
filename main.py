@@ -3,7 +3,7 @@
 from __future__ import print_function
 
 import logging
-from libs.flask import Flask, request
+from libs.flask import Flask, request, jsonify
 
 
 def create_app(name):
@@ -21,3 +21,10 @@ def hello():
 @app.route('/_ah/mail', methods=['POST'])
 def receiver_handler_email():
     logging.info("Received a message from: " + request.form)
+
+    resp = jsonify({
+        'status': 'Message sent'
+    })
+    resp.status_code = 200
+
+    return resp
