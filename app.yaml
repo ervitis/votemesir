@@ -6,10 +6,6 @@ inbound_services:
 - mail
 
 handlers:
-- url: /_ah/mail/[a-z\-]+@voteme-sir\.appspotmail\.com
-  script: main.app
-  login: admin
-
 - url: /.*
   script: main.app
 
