@@ -18,7 +18,7 @@ def hello():
     return 'hello world'
 
 
-@app.route('/_ah/mail')
+@app.route('/_ah/mail', methods=['POST'])
 def receiver_handler_email(mail_message):
     logging.info("Received a message from: " + mail_message.sender)
     plaintext_bodies = mail_message.bodies('text/plain')
