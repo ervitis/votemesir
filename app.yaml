@@ -7,7 +7,7 @@ inbound_services:
 
 handlers:
 - url: /_ah/mail/[a-z\-]+@votemesir\.appspotmail\.com
-  script: handle_receiver.app
+  script: main.app
   login: admin
 
 - url: /.*
